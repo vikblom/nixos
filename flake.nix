@@ -13,8 +13,7 @@
 
   outputs = { self, nixpkgs, home-manager }: {
     nixosConfigurations = {
-      # nixos tower PC
-      nixos = nixpkgs.lib.nixosSystem {
+      monolit = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix

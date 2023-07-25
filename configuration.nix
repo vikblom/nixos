@@ -8,7 +8,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # <home-manager/nixos>
   ];
 
   nix = {
@@ -38,7 +37,7 @@
   # Avoid bloating boot
   boot.loader.grub.configurationLimit = 4;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
 
