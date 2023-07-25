@@ -94,6 +94,9 @@ in
     pkgs.sqlite
     pkgs.dbmate
 
+    # https://github.com/nix-community/home-manager/issues/3113
+    pkgs.dconf
+
   ] ++ (lib.optionals isDarwin [
     pkgs.iterm2
     pkgs.lima
