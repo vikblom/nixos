@@ -78,6 +78,8 @@
       sessionCommands = ''
         xinput --set-prop 'Logitech USB Receiver Mouse' 'Device Accel Profile' -1
         xinput --set-prop 'Logitech USB Receiver Mouse' 'Device Accel Constant Deceleration' 1.7
+
+        ${pkgs.xorg.xset}/bin/xset r rate 200 40
       '';
     };
     windowManager.i3 = {
@@ -99,27 +101,11 @@
   # Not needed?
   # hardware.opengl.enable = true;
 
-  # For shell.
-  programs.fish.enable = true;
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.viktor = {
-    isNormalUser = true;
-    description = "Viktor Blomqvist";
-    extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" "docker" ];
-    shell = pkgs.fish;
-  };
-  # home-manager.users.viktor = { pkgs, ... }: {
-  #   home.packages = [ pkgs.atool pkgs.httpie ];
-  #   programs.fish.enable = true;
-  # };
-  # home-manager.users.viktor = import /home/viktor/nixpkgs/home.nix;
-
   # Emacs Daemon
   services.emacs.enable = true;
   services.emacs.defaultEditor = true;
 
   # Enable automatic login for the user.
-  # services.getty.autologinUser = "viktor";
   services.udisks2.enable = true;
 
   # RaspPi resolution
@@ -146,6 +132,7 @@
     gnumake
     binutils
     pkg-config
+    killall
 
     udiskie
     ntfs3g

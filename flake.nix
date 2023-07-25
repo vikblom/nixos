@@ -18,6 +18,23 @@
         modules = [
           ./hardware/pc-tower.nix
           ./configuration.nix
+          ./hm/nixos.nix
+
+          # WIP: Flake-y home-manager setup.
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.viktor = import ./hm/home.nix;
+          }
+        ];
+      };
+
+      vm-aarch64-utm = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ./hardware/vm-utm.nix
+          ./hm/nixos.nix
 
           # WIP: Flake-y home-manager setup.
           home-manager.nixosModules.home-manager
