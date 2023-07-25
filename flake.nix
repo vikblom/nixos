@@ -16,6 +16,7 @@
       monolit = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./hardware/pc-tower.nix
           ./configuration.nix
 
           # WIP: Flake-y home-manager setup.
