@@ -91,10 +91,10 @@
       ];
     };
 
-    #libinput = {
-    #  mouse.accelProfile = "flat";
-    #  mouse.accelSpeed = "0.01";
-    #};
+    libinput = {
+      mouse.accelProfile = "flat";
+      mouse.accelSpeed = "-0.9";
+    };
   };
   # Breaks if adding "se" layout.
   # console.useXkbConfig = true;
