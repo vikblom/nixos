@@ -55,7 +55,7 @@ in
     pkgs.tmux
     pkgs.git
     pkgs.direnv
-    pkgs.emacs28NativeComp
+    pkgs.emacs29
 
     pkgs.go
     pkgs.gopls
@@ -111,6 +111,7 @@ in
     pkgs.rofi
 
     pkgs.evince
+    pkgs.spotify
   ]);
 
   # --  Env

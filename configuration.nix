@@ -93,7 +93,7 @@
 
     libinput = {
       mouse.accelProfile = "flat";
-      mouse.accelSpeed = "-0.9";
+      mouse.accelSpeed = "-0.5";
     };
   };
   # Breaks if adding "se" layout.
