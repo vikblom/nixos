@@ -149,6 +149,7 @@
     firefox
     signal-desktop
     discord
+    vlc
 
     vscode
 
@@ -164,6 +165,8 @@
     pkgs.inconsolata
     pkgs.fira-code
     pkgs.roboto-mono
+    pkgs.meslo-lg
+    pkgs.b612
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
