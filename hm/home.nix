@@ -56,15 +56,16 @@ in
     pkgs.git
     pkgs.direnv
     pkgs.emacs29
+    pkgs.neovim
 
     pkgs.go
     pkgs.gopls
     pkgs.delve
 
-    # pkgs.rustc
-    # pkgs.cargo
+    pkgs.rustc
+    pkgs.cargo
     # pkgs.rustup # So we can rustup --docs
-    # pkgs.rust-analyzer
+    pkgs.rust-analyzer
     # pkgs.gdb
     # pkgs.linuxPackages_latest.perf
 

@@ -150,6 +150,7 @@
     signal-desktop
     discord
     vlc
+    imagemagick
 
     vscode
 
