@@ -133,6 +133,7 @@
     binutils
     pkg-config
     killall
+    openssl
 
     udiskie
     ntfs3g
