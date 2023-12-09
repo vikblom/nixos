@@ -16,7 +16,7 @@
       monolit = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hardware/pc-tower.nix
+          ./hardware/tower.nix
           ./configuration.nix
           ./hm/nixos.nix
 

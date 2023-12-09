@@ -9,18 +9,25 @@
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
+      max-jobs = auto
     '';
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Avoid bloating boot
-  boot.loader.grub.configurationLimit = 4;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 4;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+  };
+  # Hardware config must point out /boot.
 
   networking.hostName = "nixos";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
 
   # Configure network proxy if necessary
@@ -122,6 +129,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    file
     lsof
     xclip
     vim
@@ -135,8 +143,13 @@
     killall
     openssl
 
+    tree-sitter
+
     udiskie
     ntfs3g
+    pciutils
+    dmidecode
+    lshw
 
     xfce.thunar
     xfce.tumbler
@@ -152,6 +165,7 @@
     discord
     vlc
     imagemagick
+    graphviz
 
     vscode
 

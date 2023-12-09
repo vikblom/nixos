@@ -90,6 +90,9 @@ in
     # Daemon installed separately
     pkgs.docker
     pkgs.docker-compose
+    pkgs.kind
+    pkgs.helm
+    pkgs.istioctl
 
     pkgs.postgresql
     pkgs.sqlite
@@ -97,6 +100,9 @@ in
 
     # https://github.com/nix-community/home-manager/issues/3113
     pkgs.dconf
+
+    pkgs.hugo
+    pkgs.dig
 
   ] ++ (lib.optionals isDarwin [
     pkgs.iterm2
