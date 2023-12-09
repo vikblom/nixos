@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   nix = {
     package = pkgs.nixFlakes;
@@ -26,7 +25,6 @@
   # Hardware config must point out /boot.
 
   networking.hostName = "nixos";
-  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
 
   # Configure network proxy if necessary
@@ -67,7 +65,7 @@
     enable = true;
     # dpi = 100;
 
-    videoDrivers = [ "nvidia" ];
+    # videoDrivers = [ "nvidia" ];
 
     layout = "us,se";
     xkbVariant = "";
@@ -139,13 +137,12 @@
     curl
     git
     gcc
+    glibc.static
     gnumake
     binutils
     pkg-config
     killall
     openssl
-
-    tree-sitter
 
     udiskie
     ntfs3g
@@ -176,10 +173,10 @@
   ];
 
   environment.variables = {
-    GDK_DPI_SCALE = "0.8";
+    # GDK_DPI_SCALE = "0.8";
   };
 
-  fonts.fonts = [
+  fonts.packages = [
     pkgs.inconsolata
     pkgs.fira-code
     pkgs.roboto-mono
@@ -199,7 +196,7 @@
   services.mullvad-vpn.enable = true;
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -214,5 +211,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

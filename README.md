@@ -27,3 +27,6 @@ Launching all at once seems to cause problems?
 ```
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 ```
+sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old
+sudo nix-collect-garbage -d
+sudo /run/current-system/bin/switch-to-configuration boot

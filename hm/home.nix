@@ -57,10 +57,12 @@ in
     pkgs.direnv
     pkgs.emacs29
     pkgs.neovim
+    pkgs.openssh
 
     pkgs.go
     pkgs.gopls
     pkgs.delve
+    pkgs.tree-sitter
 
     pkgs.rustc
     pkgs.cargo
@@ -139,7 +141,7 @@ in
   xdg.configFile."rofi/config.rasi".text = builtins.readFile ./rofi;
   xdg.configFile."alacritty/alacritty.yml".text = builtins.readFile ./alacritty.yml;
   # Collides with tools at work.
-  # home.file.".gitconfig".source = ./git/gitconfig;
+  home.file.".gitconfig".source = ./git/gitconfig;
 
   # -- Programs
 

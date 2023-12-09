@@ -47,7 +47,7 @@ floating_modifier $mod
 mouse_warping none
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -e tmux
 
 # kill focused window
 bindsym $mod+q kill
@@ -198,7 +198,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     status_command i3status
-    font pango:Roboto Mono 7
+    font pango:Roboto Mono 8
 }
 exec --no-startup-id xfce4-clipman
 

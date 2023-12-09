@@ -2,9 +2,9 @@ cursor:
   style: Block
 
 font:
-  size: 10.0
+  size: 6.0
   normal:
-    family: "Inconsolata"
+    family: "Roboto Mono"
 
 # Colors (One Half Dark)
 # colors:
