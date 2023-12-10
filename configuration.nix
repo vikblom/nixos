@@ -21,7 +21,6 @@
     };
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
     };
   };
   # Hardware config must point out /boot.
