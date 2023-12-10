@@ -132,6 +132,7 @@ in
 
   # -- Dotfiles
 
+  home.file.".background-image".source = ./background.jpeg;
   home.file.".tmux.conf".source = ./tmux/tmux.conf;
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
   xdg.configFile."i3status/config".text = builtins.readFile ./i3status;
