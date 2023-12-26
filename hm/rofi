@@ -145,5 +145,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-//@theme "/nix/store/v8zwvsj3qs43birf23ibic46xvxwkbr0-rofi-1.7.3/share/rofi/themes/DarkBlue.rasi"
-//@theme "/nix/store/4ls3r7qa1x75f52wybirsfw6a7p1mhf6-rofi-1.7.5/share/rofi/themes/Arc-Dark.rasi"
+@theme "Arc-Dark"

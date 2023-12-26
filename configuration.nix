@@ -108,8 +108,11 @@
   # hardware.opengl.enable = true;
 
   # Emacs Daemon
-  services.emacs.enable = true;
-  services.emacs.defaultEditor = true;
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs29;
+    defaultEditor = true;
+  };
 
   # Enable automatic login for the user.
   services.udisks2.enable = true;
