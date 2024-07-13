@@ -61,6 +61,10 @@ in
     pkgs.go
     pkgs.gopls
     pkgs.delve
+    # https://nixos.wiki/wiki/Packaging/Binaries
+    pkgs.patchelf
+
+    pkgs.python3
 
     pkgs.rustc
     pkgs.cargo
@@ -69,8 +73,8 @@ in
     # pkgs.gdb
     # pkgs.linuxPackages_latest.perf
 
-    pkgs.nixfmt
-    pkgs.rnix-lsp
+    pkgs.nixfmt-classic
+    # CVE? pkgs.rnix-lsp
 
     pkgs.cmake
 
@@ -93,6 +97,7 @@ in
     pkgs.kind
     pkgs.helm
     pkgs.istioctl
+    pkgs.envoy
 
     pkgs.postgresql
     pkgs.sqlite
@@ -115,10 +120,16 @@ in
     pkgs.kitty
     # pkgs.chromium
     pkgs.firefox
+    pkgs.ungoogled-chromium
     pkgs.rofi
+    pkgs.rr
+    pkgs.ffmpeg
+    pkgs.openshot-qt
+    pkgs.audacity
 
     pkgs.evince
     pkgs.spotify
+    pkgs.calibre
   ]);
 
   # --  Env
@@ -164,6 +175,10 @@ in
       gt = "git tag";
     };
   };
+
+  # programs.ssh = {
+  #   enable = true;
+  # }
 
   # -- Graphics
 

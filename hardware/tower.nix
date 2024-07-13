@@ -35,17 +35,18 @@
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Additional permanent drives.
-  fileSystems."/run/media/samsung-linux" = {
-    device = "/dev/disk/by-uuid/4acd065b-2d01-4513-8796-ab01d71b1400";
-    fsType = "auto";
-    options = [ "nosuid" "nodev" "nofail" "x-gvfs-show" ];
-  };
   boot.supportedFilesystems = [ "ntfs" ];
-  fileSystems."/run/media/samsung-windows" = {
-    device = "/dev/disk/by-uuid/264E526D4E523631";
-    fsType = "auto";
-    options = [ "ro" "uid=1000" "gid=100" "dmask=027" "fmask=137" ];
-  };
+
+  # Additional permanent drives.
+  # fileSystems."/run/media/samsung-linux" = {
+  #   device = "/dev/disk/by-uuid/4acd065b-2d01-4513-8796-ab01d71b1400";
+  #   fsType = "auto";
+  #   options = [ "nosuid" "nodev" "nofail" "x-gvfs-show" ];
+  # };
+  # fileSystems."/run/media/samsung-windows" = {
+  #   device = "/dev/disk/by-uuid/264E526D4E523631";
+  #   fsType = "auto";
+  #   options = [ "ro" "uid=1000" "gid=100" "dmask=027" "fmask=137" ];
+  # };
 
 }

@@ -63,40 +63,44 @@
   virtualisation.docker.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    # dpi = 100;
+  services = {
+    xserver = {
+      enable = true;
+      # dpi = 100;
 
-    videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "nvidia" ];
 
-    layout = "us,se";
-    xkbVariant = "";
-    xkbOptions = "ctrl:nocaps,grp:win_space_toggle";
+      xkb.layout = "us,se";
+      xkb.variant = "";
+      xkb.options = "ctrl:nocaps,grp:win_space_toggle";
 
-    desktopManager = {
-      xterm.enable = false;
-      wallpaper.mode = "scale";
-    };
-    displayManager = {
-      defaultSession = "none+i3";
-      autoLogin.enable = true;
-      autoLogin.user = "viktor";
-      sessionCommands = ''
+      desktopManager = {
+        xterm.enable = false;
+        wallpaper.mode = "scale";
+      };
+      displayManager = {
+        sessionCommands = ''
         xinput --set-prop 'Logitech USB Receiver Mouse' 'Device Accel Profile' -1
         xinput --set-prop 'Logitech USB Receiver Mouse' 'Device Accel Constant Deceleration' 1.7
 
         ${pkgs.xorg.xset}/bin/xset r rate 200 40
       '';
-    };
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        rofi
-        i3status
-        i3lock
-      ];
-    };
+      };
+      windowManager.i3 = {
+        enable = true;
+        extraPackages = with pkgs; [
+          rofi
+          i3status
+          i3lock
+        ];
+      };
 
+    };
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin.enable = true;
+      autoLogin.user = "viktor";
+    };
     libinput = {
       mouse.accelProfile = "flat";
       mouse.accelSpeed = "-0.5";
@@ -119,7 +123,7 @@
 
   # RaspPi resolution
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
 
   # Allow dconf in Home Manager config.
   programs.dconf.enable = true;
@@ -179,7 +183,7 @@
     GDK_DPI_SCALE = "0.8";
   };
 
-  fonts.fonts = [
+  fonts.packages = [
     pkgs.inconsolata
     pkgs.fira-code
     pkgs.roboto-mono
@@ -197,6 +201,7 @@
 
   # List services that you want to enable:
   services.mullvad-vpn.enable = true;
+  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
