@@ -73,8 +73,11 @@ in
     # pkgs.gdb
     # pkgs.linuxPackages_latest.perf
 
+    pkgs.zig
+    pkgs.zls
+
     pkgs.nixfmt-classic
-    # CVE? pkgs.rnix-lsp
+    pkgs.nil
 
     pkgs.cmake
 

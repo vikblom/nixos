@@ -105,6 +105,9 @@
       mouse.accelProfile = "flat";
       mouse.accelSpeed = "-0.5";
     };
+    devmon.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
   };
   # Breaks if adding "se" layout.
   # console.useXkbConfig = true;
@@ -117,9 +120,6 @@
     package = pkgs.emacs29;
     defaultEditor = true;
   };
-
-  # Enable automatic login for the user.
-  services.udisks2.enable = true;
 
   # RaspPi resolution
   services.avahi.enable = true;
