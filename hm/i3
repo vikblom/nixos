@@ -47,7 +47,7 @@ floating_modifier $mod
 mouse_warping none
 
 # start a terminal
-bindsym $mod+Return exec alacritty -e tmux
+bindsym $mod+Return exec ghostty -e tmux
 
 # kill focused window
 bindsym $mod+q kill

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 # Nix config.
 # Most parts inspired/stolen from github.com/mitchellh/nixos-config.
@@ -19,7 +19,7 @@ let
   manpager = (pkgs.writeShellScriptBin "manpager" (if isDarwin then ''
     sh -c 'col -bx | bat -l man -p'
   '' else ''
-    col -bx | bat --language man --style plain
+    sh -c "bat -l man -p"
   ''));
 in
 {
@@ -55,8 +55,9 @@ in
     pkgs.tmux
     pkgs.git
     pkgs.direnv
-    pkgs.emacs29
+    pkgs.emacs
     pkgs.neovim
+    pkgs.sbcl
 
     pkgs.go
     pkgs.gopls
@@ -78,6 +79,7 @@ in
 
     pkgs.nixfmt-classic
     pkgs.nil
+    pkgs.nix-search-cli
 
     pkgs.cmake
 
@@ -112,6 +114,12 @@ in
     pkgs.hugo
     pkgs.dig
 
+    pkgs.livekit
+    pkgs.livekit-cli
+    pkgs.obs-studio
+    pkgs.nodejs
+    pkgs.pnpm
+
   ] ++ (lib.optionals isDarwin [
     pkgs.iterm2
     pkgs.lima
@@ -119,7 +127,6 @@ in
     # pkgs.podman
 
   ]) ++ (lib.optionals isLinux [
-    pkgs.alacritty
     pkgs.kitty
     # pkgs.chromium
     pkgs.firefox
@@ -129,6 +136,7 @@ in
     pkgs.ffmpeg
     pkgs.openshot-qt
     pkgs.audacity
+    pkgs.yt-dlp
 
     pkgs.evince
     pkgs.spotify
@@ -151,7 +159,6 @@ in
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
   xdg.configFile."i3status/config".text = builtins.readFile ./i3status;
   xdg.configFile."rofi/config.rasi".text = builtins.readFile ./rofi;
-  xdg.configFile."alacritty/alacritty.yml".text = builtins.readFile ./alacritty.yml;
   # Collides with tools at work.
   # home.file.".gitconfig".source = ./git/gitconfig;
 
@@ -216,7 +223,6 @@ in
     };
   };
   home.sessionVariables.GTK_THEME = "palenight";
-  xresources.extraConfig = builtins.readFile ./Xresources;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
