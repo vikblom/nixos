@@ -20,6 +20,8 @@ alias hms='home-manager switch'
 alias ssh='TERM=xterm-256color /usr/bin/ssh'
 alias dcu='docker compose up -d'
 alias dcd='docker compose down'
+alias cdg='cd (git rev-parse --show-toplevel)'
+alias tf='terraform'
 
 function ec --description 'emacsclient --nw ...'
     emacsclient --nw $argv

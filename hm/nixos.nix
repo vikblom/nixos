@@ -11,9 +11,4 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" "docker" ];
     shell = pkgs.fish;
   };
-  # home-manager.users.viktor = { pkgs, ... }: {
-  #   home.packages = [ pkgs.atool pkgs.httpie ];
-  #   programs.fish.enable = true;
-  # };
-  # home-manager.users.viktor = import /home/viktor/nixpkgs/home.nix;
 }

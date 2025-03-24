@@ -23,6 +23,9 @@ let
   ''));
 in
 {
+  # For terraform.
+  nixpkgs.config.allowUnfree = true;
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -52,20 +55,26 @@ in
   # Or: https://search.nixos.org/packages
   home.packages = [
     pkgs.fish
+    pkgs.ghostty
     pkgs.tmux
     pkgs.git
     pkgs.direnv
     pkgs.emacs
     pkgs.neovim
-    pkgs.sbcl
+    pkgs.tree-sitter
 
     pkgs.go
     pkgs.gopls
     pkgs.delve
+    # For profiling
+    pkgs.graphviz
     # https://nixos.wiki/wiki/Packaging/Binaries
     pkgs.patchelf
-
     pkgs.python3
+
+    # fonts
+    pkgs.roboto
+    pkgs.inconsolata
 
     pkgs.rustc
     pkgs.cargo
@@ -83,8 +92,8 @@ in
 
     pkgs.cmake
 
-    pkgs.clojure-lsp
-
+    pkgs.coreutils
+    pkgs.inetutils
     pkgs.bat
     pkgs.fd
     pkgs.htop
@@ -93,6 +102,8 @@ in
     pkgs.tree
     pkgs.watch
     pkgs.fzf
+    pkgs.iperf
+    pkgs.pprof
 
     pkgs.kubectl
 
@@ -104,7 +115,8 @@ in
     pkgs.istioctl
     pkgs.envoy
 
-    pkgs.postgresql
+    pkgs.postgresql_15_jit
+    pkgs.duckdb
     pkgs.sqlite
     pkgs.dbmate
 
@@ -127,7 +139,6 @@ in
     # pkgs.podman
 
   ]) ++ (lib.optionals isLinux [
-    pkgs.kitty
     # pkgs.chromium
     pkgs.firefox
     pkgs.ungoogled-chromium
@@ -136,7 +147,6 @@ in
     pkgs.ffmpeg
     pkgs.openshot-qt
     pkgs.audacity
-    pkgs.yt-dlp
 
     pkgs.evince
     pkgs.spotify
@@ -154,13 +164,13 @@ in
 
   # -- Dotfiles
 
-  home.file.".background-image".source = ./background.jpeg;
+  home.file.".gitconfig".source = ./gitconfig;
   home.file.".tmux.conf".source = ./tmux/tmux.conf;
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
   xdg.configFile."i3status/config".text = builtins.readFile ./i3status;
   xdg.configFile."rofi/config.rasi".text = builtins.readFile ./rofi;
-  # Collides with tools at work.
-  # home.file.".gitconfig".source = ./git/gitconfig;
+  home.file.".background-image".source = ./background.jpeg;
+  xdg.configFile."ghostty/config".text = builtins.readFile ./ghostty;
 
   # -- Programs
 

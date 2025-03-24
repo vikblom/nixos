@@ -1,0 +1,25 @@
+theme = Adventure
+font-family = Inconsolata
+font-style = Regular
+font-size = 14
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
+
+clipboard-read = allow
+clipboard-write = allow
+
+window-inherit-font-size = false
+window-decoration = true
+macos-window-shadow = false
+macos-option-as-alt = true
+gtk-titlebar = false
+
+initial-command = /Users/viktor/.nix-profile/bin/fish -C tmux
+
+shell-integration = fish
+shell-integration-features = no-cursor
+
+mouse-scroll-multiplier = 0.1
+
+config-file = ?config-local

@@ -24,6 +24,9 @@
     };
   };
   # Hardware config must point out /boot.
+  # boot.kernel.sysctl = {
+  #   "kernel.yama.ptrace_scope" = 0;
+  # };
 
   networking.hostName = "nixos";
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -126,7 +129,7 @@
   # Emacs Daemon
   services.emacs = {
     enable = true;
-    package = pkgs.emacs29;
+    package = pkgs.emacs30;
     defaultEditor = true;
   };
 

@@ -17,13 +17,16 @@
     ketchup = ! git main && git pull --prune && git prune-local
 [push]
     default = current
+    autoSetupRemote = true
 [core]
     excludesfile = ~/.gitignore
-	pager = less -FX
+	pager = bat -p
 [checkout]
     defaultRemote = origin
 #[branch]
 #    autosetupmerge = always
+[merge]
+    conflictStyle = zdiff3
 [diff]
 	colorMoved = zebra
 [rebase]
@@ -31,6 +34,9 @@
 	stat = true
 [init]
 	defaultBranch = main
+
+# [url "git@gitlab.com:"]
+#     insteadOf = https://gitlab.com/
 
 # Local overrides
 [include]

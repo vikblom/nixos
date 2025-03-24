@@ -23,7 +23,6 @@
           ./configuration.nix
           ./hm/nixos.nix
 
-          # WIP: Flake-y home-manager setup.
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -44,7 +43,6 @@
           ./hardware/vm-utm.nix
           ./hm/nixos.nix
 
-          # WIP: Flake-y home-manager setup.
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
