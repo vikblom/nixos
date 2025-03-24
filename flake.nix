@@ -41,6 +41,7 @@
         system = "aarch64-linux";
         modules = [
           ./hardware/vm-utm.nix
+          ./configuration.nix
           ./hm/nixos.nix
 
           home-manager.nixosModules.home-manager

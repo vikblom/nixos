@@ -35,6 +35,9 @@
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  hardware.nvidia.open = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   # Additional permanent drives.

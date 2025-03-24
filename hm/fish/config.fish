@@ -62,6 +62,10 @@ function fish_prompt --description 'Write out the prompt'
     set_color $color_cwd
     echo -n (basename $PWD)
 
+    if test -n "$IN_NIX_SHELL"
+        echo -n " ❄ "
+    end
+
     set_color yellow
     echo -n (fish_vcs_prompt)
     # Indicate status by color

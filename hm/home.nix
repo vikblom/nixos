@@ -14,6 +14,7 @@
 let
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
+  isx86 = pkgs.stdenv.isx86_64;
 
   # Colorful MANPAGER
   manpager = (pkgs.writeShellScriptBin "manpager" (if isDarwin then ''
@@ -132,7 +133,18 @@ in
     pkgs.nodejs
     pkgs.pnpm
 
-  ] ++ (lib.optionals isDarwin [
+    pkgs.signal-desktop
+    pkgs.vlc
+    pkgs.imagemagick
+    pkgs.graphviz
+    # FIXME: Only on unstable.
+    # pkgs.unstable.discord
+
+  ] ++ (lib.optionals isx86 [
+    pkgs.spotify
+
+
+  ]) ++ (lib.optionals isDarwin [
     pkgs.iterm2
     pkgs.lima
     pkgs.colima
@@ -149,7 +161,6 @@ in
     pkgs.audacity
 
     pkgs.evince
-    pkgs.spotify
     pkgs.calibre
   ]);
 

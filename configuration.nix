@@ -78,8 +78,6 @@
       enable = true;
       # dpi = 100;
 
-      videoDrivers = [ "nvidia" ];
-
       xkb.layout = "us,se";
       xkb.variant = "";
       xkb.options = "ctrl:nocaps,grp:win_space_toggle";
@@ -124,8 +122,6 @@
   # Not needed?
   # hardware.opengl.enable = true;
 
-  hardware.nvidia.open = true;
-
   # Emacs Daemon
   services.emacs = {
     enable = true;
@@ -160,8 +156,7 @@
     pkg-config
     killall
     openssl
-
-    tree-sitter
+    bash
 
     udiskie
     ntfs3g
@@ -179,13 +174,6 @@
     screenfetch
 
     firefox
-    signal-desktop
-    discord
-    vlc
-    imagemagick
-    graphviz
-
-    vscode
 
     mullvad-vpn
     transmission-gtk
@@ -220,7 +208,7 @@
   programs.ssh.startAgent = true;
 
   programs.noisetorch.enable = true;
-  programs.steam.enable = true;
+  programs.steam.enable = pkgs.stdenv.isx86_64;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 3000 8080 ];
