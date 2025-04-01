@@ -1,7 +1,7 @@
 theme = Adventure
 font-family = Inconsolata
 font-style = Regular
-font-size = 14
+font-size = 9
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga

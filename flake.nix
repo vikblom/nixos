@@ -50,6 +50,12 @@
             home-manager.useUserPackages = true;
             home-manager.users.viktor = import ./hm/home.nix;
           }
+
+          {
+            environment.systemPackages = [
+              ghostty.packages.aarch64-linux.default
+            ];
+          }
         ];
       };
     };

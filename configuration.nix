@@ -10,6 +10,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
       max-jobs = auto
+      allow-import-from-derivation = true
     '';
   };
 
@@ -174,9 +175,10 @@
     screenfetch
 
     firefox
+    tailscale
 
-    mullvad-vpn
-    transmission-gtk
+    # mullvad-vpn
+    # transmission-gtk
   ];
 
   environment.variables = {

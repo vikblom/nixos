@@ -56,7 +56,7 @@ in
   # Or: https://search.nixos.org/packages
   home.packages = [
     pkgs.fish
-    pkgs.ghostty
+    # pkgs.ghostty
     pkgs.tmux
     pkgs.git
     pkgs.direnv
@@ -140,6 +140,9 @@ in
     # FIXME: Only on unstable.
     # pkgs.unstable.discord
 
+    # CarbonCloud
+    pkgs.awscli2
+
   ] ++ (lib.optionals isx86 [
     pkgs.spotify
 
@@ -153,7 +156,7 @@ in
   ]) ++ (lib.optionals isLinux [
     # pkgs.chromium
     pkgs.firefox
-    pkgs.ungoogled-chromium
+    # pkgs.ungoogled-chromium
     pkgs.rofi
     pkgs.rr
     pkgs.ffmpeg
