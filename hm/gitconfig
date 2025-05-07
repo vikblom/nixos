@@ -1,6 +1,7 @@
 [user]
     name = Viktor Blomqvist
     # Don't set email, do that in override, so that there is control over it.
+    # email = viktor.blomqvist@carboncloud.com
 [color]
     ui = auto
 [alias]

@@ -116,10 +116,12 @@ in
     pkgs.istioctl
     pkgs.envoy
 
-    pkgs.postgresql_15_jit
+    pkgs.postgresql_17_jit
     pkgs.duckdb
     pkgs.sqlite
     pkgs.dbmate
+    pkgs.pgformatter
+    pkgs.redis
 
     # https://github.com/nix-community/home-manager/issues/3113
     pkgs.dconf
@@ -142,6 +144,8 @@ in
 
     # CarbonCloud
     pkgs.awscli2
+    pkgs.jwt-cli
+    pkgs.gh
 
   ] ++ (lib.optionals isx86 [
     pkgs.spotify

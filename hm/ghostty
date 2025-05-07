@@ -15,7 +15,8 @@ macos-window-shadow = false
 macos-option-as-alt = true
 gtk-titlebar = false
 
-initial-command = /Users/viktor/.nix-profile/bin/fish -C tmux
+# initial-command = /Users/viktor/.nix-profile/bin/fish -C tmux
+initial-command = fish -c tmux
 
 shell-integration = fish
 shell-integration-features = no-cursor
@@ -23,3 +24,5 @@ shell-integration-features = no-cursor
 mouse-scroll-multiplier = 0.1
 
 config-file = ?config-local
+
+keybind = ctrl+physical:c=text:\x03

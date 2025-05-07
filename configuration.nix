@@ -28,6 +28,7 @@
   # boot.kernel.sysctl = {
   #   "kernel.yama.ptrace_scope" = 0;
   # };
+  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 
   networking.hostName = "nixos";
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -72,12 +73,14 @@
 
   # Docker
   virtualisation.docker.enable = true;
+  virtualisation.podman.enable = true;
 
   # Configure keymap in X11
   services = {
     xserver = {
       enable = true;
-      # dpi = 100;
+      # https://linuxreviews.org/HOWTO_set_DPI_in_Xorg
+      dpi = 109;
 
       xkb.layout = "us,se";
       xkb.variant = "";
@@ -164,6 +167,7 @@
     pciutils
     dmidecode
     lshw
+    xorg.xdpyinfo
 
     xfce.thunar
     xfce.tumbler

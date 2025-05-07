@@ -21,6 +21,7 @@ alias dcu='docker compose up -d'
 alias dcd='docker compose down'
 alias cdg='cd (git rev-parse --show-toplevel)'
 alias tf='terraform'
+alias tmux-open='tmux capture-pane -J -p | rg -o "(http|https)://[a-zA-Z0-9./?=_%:-]*" | uniq | tac | fzf-tmux -d20 --multi --bind alt-a:select-all,alt-d:deselect-all | xargs xdg-open'
 
 function ec --description 'emacsclient --nw ...'
     emacsclient --nw $argv
