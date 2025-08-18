@@ -25,4 +25,4 @@ mouse-scroll-multiplier = 0.1
 
 config-file = ?config-local
 
-keybind = ctrl+physical:c=text:\x03
+# keybind = ctrl+physical:c=text:\x03

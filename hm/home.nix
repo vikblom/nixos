@@ -63,6 +63,7 @@ in
     pkgs.emacs
     pkgs.neovim
     pkgs.tree-sitter
+    pkgs.cachix
 
     pkgs.go
     pkgs.gopls
@@ -72,6 +73,7 @@ in
     # https://nixos.wiki/wiki/Packaging/Binaries
     pkgs.patchelf
     pkgs.python3
+    pkgs.uv
 
     # fonts
     pkgs.roboto
@@ -134,6 +136,7 @@ in
     pkgs.obs-studio
     pkgs.nodejs
     pkgs.pnpm
+    pkgs.prettierd
 
     pkgs.signal-desktop
     pkgs.vlc

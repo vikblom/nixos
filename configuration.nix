@@ -12,6 +12,11 @@
       max-jobs = auto
       allow-import-from-derivation = true
     '';
+
+    # settings = {
+    #   substituters = ["https://magnuscc.cachix.org"];
+    #   trusted-public-keys = ["magnuscc.cachix.org-1:H7x4rb62CG5l+XmFdDKwEb/wRkAZtdPuT0M+7P294SM="];
+    # };
   };
 
   # Bootloader.
@@ -57,7 +62,7 @@
   time.timeZone = "Europe/Stockholm";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.utf8";
@@ -180,6 +185,9 @@
 
     firefox
     tailscale
+    qemu
+    # Not on aarch64
+    # slack
 
     # mullvad-vpn
     # transmission-gtk
