@@ -19,6 +19,11 @@
     # };
   };
 
+  # FIXME
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "qtwebengine-5.15.19"
+  # ];
+
   # Bootloader.
   boot.loader = {
     systemd-boot = {
@@ -33,7 +38,16 @@
   # boot.kernel.sysctl = {
   #   "kernel.yama.ptrace_scope" = 0;
   # };
-  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "10s";
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      zlib zstd stdenv.cc.cc curl openssl attr libssh bzip2 libxml2 acl libsodium util-linux xz systemd
+    ];
+  };
 
   networking.hostName = "nixos";
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -189,6 +203,8 @@
     # Not on aarch64
     # slack
 
+    zlib
+
     # mullvad-vpn
     # transmission-gtk
   ];
@@ -222,7 +238,7 @@
   programs.ssh.startAgent = true;
 
   programs.noisetorch.enable = true;
-  programs.steam.enable = pkgs.stdenv.isx86_64;
+  #programs.steam.enable = pkgs.stdenv.isx86_64;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 3000 8080 ];

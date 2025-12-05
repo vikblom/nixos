@@ -73,7 +73,9 @@ in
     # https://nixos.wiki/wiki/Packaging/Binaries
     pkgs.patchelf
     pkgs.python3
+    pkgs.ruff
     pkgs.uv
+    pkgs.python313Packages.python-lsp-server
 
     # fonts
     pkgs.roboto
@@ -107,6 +109,7 @@ in
     pkgs.fzf
     pkgs.iperf
     pkgs.pprof
+    pkgs.xh
 
     pkgs.kubectl
 
@@ -116,7 +119,7 @@ in
     pkgs.kind
     pkgs.helm
     pkgs.istioctl
-    pkgs.envoy
+    # pkgs.envoy # big
 
     pkgs.postgresql_17_jit
     pkgs.duckdb
@@ -131,9 +134,9 @@ in
     pkgs.hugo
     pkgs.dig
 
-    pkgs.livekit
-    pkgs.livekit-cli
-    pkgs.obs-studio
+    #pkgs.livekit
+    #pkgs.livekit-cli
+    #pkgs.obs-studio
     pkgs.nodejs
     pkgs.pnpm
     pkgs.prettierd
@@ -167,7 +170,7 @@ in
     pkgs.rofi
     pkgs.rr
     pkgs.ffmpeg
-    pkgs.openshot-qt
+    # pkgs.openshot-qt
     pkgs.audacity
 
     pkgs.evince

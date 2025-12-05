@@ -26,3 +26,5 @@ mouse-scroll-multiplier = 0.1
 config-file = ?config-local
 
 # keybind = ctrl+physical:c=text:\x03
+
+app-notifications = no-clipboard-copy
