@@ -8,7 +8,10 @@ if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.fish; . /nix/var/nix/
 # set -x PAGER 'less -FX'
 
 # https://github.com/fish-shell/fish-shell/issues/10926
+bind alt-right nextd-or-forward-word
+bind alt-left prevd-or-backward-word
 bind alt-backspace backward-kill-word
+bind alt-delete kill-word
 
 # ALIAS
 alias grep='grep --color=auto'

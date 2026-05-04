@@ -12,17 +12,7 @@
       max-jobs = auto
       allow-import-from-derivation = true
     '';
-
-    # settings = {
-    #   substituters = ["https://magnuscc.cachix.org"];
-    #   trusted-public-keys = ["magnuscc.cachix.org-1:H7x4rb62CG5l+XmFdDKwEb/wRkAZtdPuT0M+7P294SM="];
-    # };
   };
-
-  # FIXME
-  # nixpkgs.config.permittedInsecurePackages = [
-  #   "qtwebengine-5.15.19"
-  # ];
 
   # Bootloader.
   boot.loader = {
@@ -187,6 +177,7 @@
     dmidecode
     lshw
     xorg.xdpyinfo
+    ncdu
 
     xfce.thunar
     xfce.tumbler

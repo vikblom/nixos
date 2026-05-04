@@ -127,6 +127,7 @@ in
     pkgs.dbmate
     pkgs.pgformatter
     pkgs.redis
+    pkgs.typst
 
     # https://github.com/nix-community/home-manager/issues/3113
     pkgs.dconf
@@ -145,6 +146,7 @@ in
     pkgs.vlc
     pkgs.imagemagick
     pkgs.graphviz
+    pkgs.simplescreenrecorder
     # FIXME: Only on unstable.
     # pkgs.unstable.discord
 
@@ -152,6 +154,8 @@ in
     pkgs.awscli2
     pkgs.jwt-cli
     pkgs.gh
+    pkgs.opencode
+    pkgs.claude-code
 
   ] ++ (lib.optionals isx86 [
     pkgs.spotify
@@ -222,6 +226,19 @@ in
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      forwardAgent = false;
+      addKeysToAgent = "no";
+      compression = false;
+      serverAliveInterval = 0;
+      serverAliveCountMax = 3;
+      hashKnownHosts = false;
+      userKnownHostsFile = "~/.ssh/known_hosts";
+      controlMaster = "no";
+      controlPath = "~/.ssh/master-%r@%n:%p";
+      controlPersist = "no";
+    };
   };
 
   # -- Graphics

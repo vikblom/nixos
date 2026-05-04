@@ -6,6 +6,7 @@
     ui = auto
 [alias]
     new-branch = checkout --no-track -b
+    fwl = push --force-with-lease
     lg = log -n 10 --oneline
     lt = log --oneline --graph
     lgg = log -n 10 --format='format:"%C(auto)%h %s %C(green)%aN%Creset"'
