@@ -110,6 +110,7 @@ in
     pkgs.iperf
     pkgs.pprof
     pkgs.xh
+    pkgs.urlencode
 
     pkgs.kubectl
 

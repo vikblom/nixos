@@ -189,6 +189,7 @@
     screenfetch
 
     firefox
+    chromium
     tailscale
     qemu
     # Not on aarch64
