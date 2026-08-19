@@ -59,6 +59,7 @@ in
     # pkgs.ghostty
     pkgs.tmux
     pkgs.git
+    pkgs.jujutsu
     pkgs.direnv
     pkgs.emacs
     pkgs.neovim
@@ -91,7 +92,7 @@ in
     pkgs.zig
     pkgs.zls
 
-    pkgs.nixfmt-classic
+    pkgs.nixfmt
     pkgs.nil
     pkgs.nix-search-cli
 

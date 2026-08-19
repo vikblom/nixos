@@ -64,6 +64,9 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
+  services.timesyncd.extraConfig = ''
+    PollIntervalMaxSec=60
+  '';
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -104,7 +107,7 @@
         xinput --set-prop 'Logitech USB Receiver Mouse' 'Device Accel Profile' -1
         xinput --set-prop 'Logitech USB Receiver Mouse' 'Device Accel Constant Deceleration' 1.7
 
-        ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        ${pkgs.xset}/bin/xset r rate 200 40
       '';
       };
       windowManager.i3 = {
@@ -176,13 +179,13 @@
     pciutils
     dmidecode
     lshw
-    xorg.xdpyinfo
+    xdpyinfo
     ncdu
 
-    xfce.thunar
-    xfce.tumbler
-    xfce.xfce4-screenshooter
-    xfce.xfce4-clipman-plugin
+    thunar
+    tumbler
+    xfce4-screenshooter
+    xfce4-clipman-plugin
     unclutter
 
     pavucontrol
@@ -222,7 +225,7 @@
   # };
 
   # List services that you want to enable:
-  services.mullvad-vpn.enable = true;
+  # services.mullvad-vpn.enable = true;
   services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
