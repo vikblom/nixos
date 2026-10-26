@@ -68,6 +68,26 @@
     PollIntervalMaxSec=60
   '';
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "testluigi" "bizluigi" ];
+    package = pkgs.postgresql_16;
+    # https://nixos.org/manual/nixos/stable/options#opt-services.postgresql.settings
+    # https://www.postgresql.org/docs/current/config-setting.html#CONFIG-SETTING-CONFIGURATION-FILE
+    settings = {
+      port = 5555;
+      fsync = false;
+      full_page_writes = false;
+      synchronous_commit = false;
+    };
+    authentication = pkgs.lib.mkOverride 10 ''
+    #type database DBuser origin-address auth-method
+    local all      all     trust
+    host  all      all     127.0.0.1/32   trust
+    host  all      all     ::1/128        trust
+    '';
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

@@ -84,6 +84,8 @@ in
 
     pkgs.rustc
     pkgs.cargo
+    pkgs.rustfmt
+    pkgs.clippy
     # pkgs.rustup # So we can rustup --docs
     pkgs.rust-analyzer
     # pkgs.gdb
@@ -222,24 +224,25 @@ in
       gp = "git push";
       gri = "git rebase --interactive";
       gs = "git status";
-      gt = "git tag";
     };
   };
 
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks."*" = {
-      forwardAgent = false;
-      addKeysToAgent = "no";
-      compression = false;
-      serverAliveInterval = 0;
-      serverAliveCountMax = 3;
-      hashKnownHosts = false;
-      userKnownHostsFile = "~/.ssh/known_hosts";
-      controlMaster = "no";
-      controlPath = "~/.ssh/master-%r@%n:%p";
-      controlPersist = "no";
+    settings = {
+      "*" = {
+        forwardAgent = false;
+        addKeysToAgent = "no";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
     };
   };
 
@@ -257,6 +260,10 @@ in
       name = "palenight";
       package = pkgs.palenight-theme;
     };
+    gtk4.theme = {
+      name = "palenight";
+      package = pkgs.palenight-theme;
+    };
 
     cursorTheme = {
       name = "Numix-Cursor";
@@ -269,11 +276,13 @@ in
       '';
     };
 
+
     gtk4.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
       '';
     };
+
   };
   home.sessionVariables.GTK_THEME = "palenight";
 
