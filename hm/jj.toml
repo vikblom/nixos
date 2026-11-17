@@ -1,0 +1,63 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+# https://gist.github.com/thoughtpolice/8f2fd36ae17cd11b8e7bd93a70e31ad6#file-jjconfig-toml
+
+[user]
+name = "Viktor Blomqvist"
+# Default email, possible overridden by ./conf.d/...
+email = "veblomqvist@gmail.com"
+
+[ui]
+default-command = "lg"
+graph.style = "square"
+
+[git]
+push-bookmark-prefix = "vbl/push-"
+
+[colors]
+"commit_id prefix" = { bold = true }
+"bookmarks" = "green"
+"author" = "#4a4a4a"
+
+[revsets]
+# log = 'ancestors(@ | main | test, 10)'
+
+[revset-aliases]
+# stack(x, n) is the set of mutable commits reachable from 'x', with 'n' parents.
+# 'n' is often useful to customize the display and return set for certain operations.
+# 'x' can be used to target the set of 'roots' to traverse, e.g. @ is the current stack.
+'stack()' = 'stack(@)'
+'stack(x)' = 'stack(x, 2)'
+'stack(x, n)' = 'ancestors(reachable(x, mutable()), n)'
+
+[aliases]
+nt = ["new", "trunk()"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+lg = [
+  "log",
+  "-r",
+  "(main..@):: | (main..@)-",
+  "-T",
+  'separate(" ", change_id.shortest(8), commit_id.shortest(8), bookmarks, description.first_line(), author.name()) ++ if(current_working_copy, "\n"++diff.summary(), "")'
+]
+
+[templates]
+log = '''
+  if(root,
+    format_root_commit(self),
+    label(if(current_working_copy, "working_copy"),
+      concat(
+        separate(" ",
+          change_id.shortest(8),
+          description.first_line(),
+          bookmarks,
+          tags,
+          author.name(),
+          working_copies,
+          if(conflict, label("conflict", "conflict")),
+        ) ++ "\n",
+      ),
+    )
+  )
+'''

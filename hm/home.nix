@@ -203,6 +203,7 @@ in
   xdg.configFile."rofi/config.rasi".text = builtins.readFile ./rofi;
   home.file.".background-image".source = ./background.jpeg;
   xdg.configFile."ghostty/config".text = builtins.readFile ./ghostty;
+  xdg.configFile."jj/config.toml".text = builtins.readFile ./jj.toml;
 
   # -- Programs
 
